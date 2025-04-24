@@ -28,12 +28,10 @@ document.addEventListener('DOMContentLoaded', function() {
       const valLen = currentValue.length;
       const cursorPosition = textarea.selectionStart;
 
-      if (valLen < 2) return; // short circuit if needed
+      if (cursorPosition - 2 <= 0) return; // short circuit if needed
 
-      const tail = currentValue.substr(valLen - 2);
-
-      console.log("tail");
-      
+      const tail = currentValue.substr(cursorPosition - 2, 2);
+     
       if (tail in text_map) {
 
         // Find all occurrences and replace them
